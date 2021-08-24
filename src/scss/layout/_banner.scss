@@ -1,0 +1,36 @@
+.banner{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../img/m.webp');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1{
+        color: $cyan;
+        font-size: 7rem;
+        margin-bottom: 1rem;
+        text-align: left;
+        margin-left: 2rem;
+    }
+
+    h2{
+        text-align: left;
+        margin:0 0 2rem 3rem;
+    };
+
+    .lema{
+        padding: 1rem 3rem 1rem 0;
+        background-color: $magenta;
+        max-width: 50rem;
+
+        h3{
+        margin: 0;
+        font-size: 3rem;
+        color: $blanco;
+        text-align: right;
+       }
+    }
+}

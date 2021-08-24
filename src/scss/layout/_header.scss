@@ -1,0 +1,42 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.contenedor__Header{
+    background: linear-gradient( $blanco,transparent);
+    z-index: 1;
+    width: 100%;
+    position: fixed;
+    .header{
+        margin: 0 auto;
+        max-width: 125rem;
+        width: 98%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo{
+            width: 8rem;
+            height: 5rem;
+            background-image: url('../img/logo-01.png');
+            background-size: 6rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin-left: -1rem;
+        }
+
+        .nav{
+            display: flex;
+            column-gap: 1rem;
+            margin-right: 1rem;
+            a{
+                color: $negro;
+
+                &:hover{
+                    text-decoration: underline;
+                    color: $magentaOs;
+                }
+            }
+        }
+    }
+}

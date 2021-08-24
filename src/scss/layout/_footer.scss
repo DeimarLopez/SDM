@@ -1,0 +1,36 @@
+.contenedor__foooter{
+    background-color: $cyan;
+    margin-top: 8rem;
+    footer{
+        
+        padding: 4rem 0;
+        width: 98%;
+        max-width: 120rem;
+        margin: 0 auto;
+        text-align: center;
+
+        @include tablet{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 2rem;
+            text-align: left;
+        }
+
+        .contactos{
+            p{
+                margin: .5rem;
+            }
+        }
+
+
+        .derechos{
+            max-width: 50rem;
+        }
+
+        p{
+            font-size: 1.5rem;
+            font-weight: 100;
+        }
+    }
+}

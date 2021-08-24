@@ -1,0 +1,61 @@
+.contendor_login{
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .login{
+        padding: 2rem 1rem;
+        form{
+            h4{
+                color: $magenta;
+                text-align: center;
+                font-size: 3rem;
+                margin: 0;
+                margin-bottom: 3rem;
+            }
+            p{
+                color: $magenta;
+                margin: 0;
+                margin-left: 1.2rem;
+                margin-top: .5rem;
+                font-size: 1.7rem;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        .btn{
+            width: 100%;
+            font-size: 2rem;
+            padding: 1rem;
+            background-color: $magenta;
+            color:$blanco;
+            margin-top: 2rem;
+            border-radius: 2.5rem;
+            border: none;
+
+            &:hover{
+                cursor: pointer;
+                background-color: $magentaOs;
+            }
+        }
+    }
+
+    .campo_login{
+        display: flex;
+        flex-direction: column;
+        
+        input{
+            background-color: #ffffffa9;
+            border: none;
+            font-size: 2rem;
+            padding: 1rem;
+            outline: none;
+            margin-bottom: 1rem;
+            border-radius: 2.5rem;
+            border: 2px solid $cyan;
+        }
+    }
+}
+
