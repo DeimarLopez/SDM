@@ -17,7 +17,7 @@
             <h3>item2Deimar</h3>
         </div>
         <div class="personas">
-            <h3>item3</h3>
+            <h3>item3PRUEBA</h3>
         </div>
         <div class="personas">
             <h3>item4</h3>
