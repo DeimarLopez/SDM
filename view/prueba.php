@@ -14,7 +14,7 @@
             <h3>item1Nancy</h3>
         </div>
         <div class="personas">
-            <h3>item2</h3>
+            <h3>item2Deimar</h3>
         </div>
         <div class="personas">
             <h3>item3</h3>
