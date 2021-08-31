@@ -15,6 +15,7 @@ const lista2 = document.querySelector('.lista2');
     Sortable.create(lista2, {
         group: 'shared',
         animation: 150
+        
     });
 
 
