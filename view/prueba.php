@@ -11,7 +11,7 @@
     <div class="lista1">
         <h2>Pendientes</h2>
         <div class="personas">
-            <h3>item1</h3>
+            <h3>item1Nancy</h3>
         </div>
         <div class="personas">
             <h3>item2</h3>
