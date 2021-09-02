@@ -75,48 +75,48 @@
     </section>
     <div class="overlay" id="overlay">
             <p class="cerrar">X</p>
-                <form action="">
+                <form action="" method="POST">
                 <div class="campos__form ">
-                    <input type="text" placeholder="Cedula">
+                    <input type="text" placeholder="Cedula" name="Cedula">
                 </div>
                 <div class="campos__form ">
-                    <input type="text" placeholder="Nombre">
+                    <input type="text" placeholder="Nombre" name="Nombre">
                 </div>
                 <div class="campos__form ">
-                    <input type="text" placeholder="Apellido">
+                    <input type="text" placeholder="Apellido" name="Apellido">
                 </div>
                 <div class="campos__form ">
-                    <input type="text" placeholder="Correo">
+                    <input type="text" placeholder="Correo" name="Correo">
                 </div>
                 <div class="campos__form ">
-                    <input type="text" placeholder="°Celular">
+                    <input type="text" placeholder="°Celular" name="Celular">
                 </div>
                 <div class="campos__form two">
                     <div class="col">
                         <label for="">Genero</label>
-                        <select name="" id="">
+                        <select name="genero" id="">
                             <option value="M">M</option>
                             <option value="F">F</option>
                         </select>
                     </div>
                     <div class="col"> 
                         <label for=""> Fecha de nacimiento</label>
-                        <input type="date">
+                        <input type="date" name="fecha">
                     </div>
                 </div>
                 <div class="campos__form ">
-                    <input type="text" placeholder="Dirección">
+                    <input type="text" placeholder="Dirección" name="Dirección">
                 </div>
                 <div class="campos__form ">
-                    <input type="text" placeholder="ciudad">
+                    <input type="text" placeholder="Ciudad" name="">
                 </div>
                 <div class="campos__form ">
-                    <input type="text" placeholder="Usuario">
+                    <input type="text" placeholder="Usuario" name="">
                 </div>
                 <div class="campos__form">
-                    <input type="text" placeholder="Password">
+                    <input type="text" placeholder="Password" name="">
                 </div>
-                <input class="btn" type="submit" value="Registrar" name="Regitrar">
+                <input class="btn" type="submit" value="Registrar" name="regitrar">
             </form>
     </div>
     <script src="view/build/js/bundle.min.js"></script>

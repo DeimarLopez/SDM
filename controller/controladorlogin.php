@@ -30,5 +30,16 @@ if(isset($_POST['ingresar'])){
     }
 }
 
+if(isset($_POST['registrar'])){
+    $doc = $_POST['Cedula'];
+    $doc = $_POST['Nombre'];
+    $doc = $_POST['Apellido'];
+    $doc = $_POST['Correo'];
+    $doc = $_POST['Celular'];
+    $doc = $_POST['fecha'];
+    $doc = $_POST['Dirección'];
+    $doc = $_POST['Cedula'];
+}
+
 require_once('view/vistalogin.php');
 ?>
