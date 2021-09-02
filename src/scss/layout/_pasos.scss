@@ -1,0 +1,71 @@
+.pasos{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 4fr 1fr;
+    justify-items: center;
+    margin: 4rem auto;
+
+    @include tablet{
+         width: 80%;
+    }
+
+    .lineatop,
+    .lineabottom{
+        border-left: .3rem solid $cyanOs;
+        height: 9rem;
+    }
+
+    .containerPasos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+            
+        .datos__titulo{
+            h2{
+                color: $cyanOs;
+                font-weight: 700;
+                font-size: 2rem;
+                margin-bottom: .5rem;
+            }
+            h3{
+                color: $blanco;
+                span{
+                    color: $magentaOs;
+                    display: block;
+                }
+                margin-bottom: 7rem;
+            }
+
+        }
+        .gridpasos{
+            
+            @include tablet{
+               display: grid;
+                grid-template-columns: repeat(3,1fr);
+                justify-items: center; 
+            }
+            
+            .pasosArt{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 30rem;
+                border-bottom: .1rem solid $cyanOs;
+                margin-bottom: 3rem;
+                
+                @include tablet{
+                    border: none;
+                    margin-bottom: 0;
+                }
+                img{
+                    width: 7rem;
+                    height: 7rem;
+                }
+                p{
+                    text-align: center;
+                    color: $negro;
+                }
+            }
+        }
+    }
+}

@@ -22,7 +22,7 @@
             </nav>
         </header>
     </div>
-    <section class="banner"id="banner">
+    <section class="banner" id="banner">
         <h1>Seven For Ever</h1>
         <h2>Diseño y Publicidad</h2>
         <div class="lema">
@@ -30,33 +30,58 @@
             <h3>Haz lo que amas</h3>
         </div>
     </section>
-    <section class="conocenos" id="conocenos">
-        <div class="div_nosotros">
-             <div class="nosotros">
-            <div class="logo">
-                <img src="view/build/img/logo-01.webp" alt="logo de seven for ever">
-            </div>
-            <div class="presentacion">
-                <h3>Quienes Somos?</h3>
-                <p>Seven For Ever es una empresa empresa publicitaria dedicada a la creacion de elementos publicitarios analogos y digitales buscando crecer de la mano con nuestros clientes</p>
-                <p>
-                    Con mas de 7 años en el mercado Colombiano y los mejores diseñadores 
-                </p>
-            </div>
-        </div>
-        </div> 
+    <section class="destino">
+        <h4>Elige tu <span>Destino</span></h4>
+        <p>Lorem, ipsum dolores magnam optio nisi ullam illum, libero temporibus a i dolor sit amet consectetur adipisicing elit. Repellendus dolores magnam optio ribus a iure vero consequatur. I epellendus dolores magnam optio ribus a iure vero cons ncidunt aperiam, sunt voluptates except</p>
     </section>
-    <section class="galeria" id="galeria">
-        <div class="container_galeria">
-            <img src="view/build/img/m2.webp" alt="">
-            <img src="view/build/img/m3.webp" alt="">
-            <img src="view/build/img/m4.webp" alt="">
-            <img src="view/build/img/m5.webp" alt="">
-            <img src="view/build/img/m6.webp" alt="">
-            <img src="view/build/img/m7.webp" alt="">
-            <img src="view/build/img/m8.webp" alt="">
-            <img src="view/build/img/m9.webp" alt="">
+    <section class="pasos">
+        <div class="lineatop">
+
         </div>
+        <section class="containerPasos">
+            <article class="datos__titulo">
+                <h2>Reserva tu viaje</h2>
+                <h3>Y vive la experiencia <span>de recorrer el mundo</span></h3>
+            </article>
+            <section class="gridpasos">
+                <article class="pasosArt">
+                    <img src="view/build/img/location.webp" alt="icono de ubicacion">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, magnam.</p>
+                </article>
+                <article class="pasosArt">
+                    <img src="view/build/img/calendar.webp" alt="icono de calendario">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, magnam.</p>
+                </article>
+                <article class="pasosArt">
+                    <img src="view/build/img/translate.webp" alt="icono de viaje">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, magnam.</p>
+                </article>
+            </section>
+        </section>
+        <div class="lineabottom">
+        </div>
+    </section>
+    <section class="galeria">
+        <article class="bogota galerimg">
+            <div class="bogota__img galerimg city">
+            </div>
+            <h4>|Vi ni lo|</h4>
+        </article>
+        <article class="cali galerimg">
+            <div class="cali__img galerimg city">
+            </div>
+            <h4>|Ba n ner|</h4>
+        </article>
+        <article class="cartagena galerimg">
+            <div class="cartagena__img galerimg city">
+            </div>
+            <h4>|Lo gos|</h4>
+        </article>
+        <article class="medellin galerimg">
+            <div class="medellin__img galerimg city">
+            </div>
+            <h4>|y más|</h4>
+        </article>
     </section>
     <section class="contendor_login">
         <div class="login" id="login">
@@ -74,50 +99,50 @@
         </div>
     </section>
     <div class="overlay" id="overlay">
-            <p class="cerrar">X</p>
-                <form action="" method="POST">
-                <div class="campos__form ">
-                    <input type="text" placeholder="Cedula" name="Cedula">
+        <p class="cerrar">X</p>
+        <form action="" method="POST">
+            <div class="campos__form ">
+                <input type="text" placeholder="Cedula" name="Cedula">
+            </div>
+            <div class="campos__form ">
+                <input type="text" placeholder="Nombre" name="Nombre">
+            </div>
+            <div class="campos__form ">
+                <input type="text" placeholder="Apellido" name="Apellido">
+            </div>
+            <div class="campos__form ">
+                <input type="text" placeholder="Correo" name="Correo">
+            </div>
+            <div class="campos__form ">
+                <input type="text" placeholder="°Celular" name="Celular">
+            </div>
+            <div class="campos__form two">
+                <div class="col">
+                    <label for="">Genero</label>
+                    <select name="genero" id="">
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select>
                 </div>
-                <div class="campos__form ">
-                    <input type="text" placeholder="Nombre" name="Nombre">
+                <div class="col">
+                    <label for=""> Fecha de nacimiento</label>
+                    <input type="date" name="fecha">
                 </div>
-                <div class="campos__form ">
-                    <input type="text" placeholder="Apellido" name="Apellido">
-                </div>
-                <div class="campos__form ">
-                    <input type="text" placeholder="Correo" name="Correo">
-                </div>
-                <div class="campos__form ">
-                    <input type="text" placeholder="°Celular" name="Celular">
-                </div>
-                <div class="campos__form two">
-                    <div class="col">
-                        <label for="">Genero</label>
-                        <select name="genero" id="">
-                            <option value="M">M</option>
-                            <option value="F">F</option>
-                        </select>
-                    </div>
-                    <div class="col"> 
-                        <label for=""> Fecha de nacimiento</label>
-                        <input type="date" name="fecha">
-                    </div>
-                </div>
-                <div class="campos__form ">
-                    <input type="text" placeholder="Dirección" name="Dirección">
-                </div>
-                <div class="campos__form ">
-                    <input type="text" placeholder="Ciudad" name="">
-                </div>
-                <div class="campos__form ">
-                    <input type="text" placeholder="Usuario" name="">
-                </div>
-                <div class="campos__form">
-                    <input type="text" placeholder="Password" name="">
-                </div>
-                <input class="btn" type="submit" value="Registrar" name="regitrar">
-            </form>
+            </div>
+            <div class="campos__form ">
+                <input type="text" placeholder="Dirección" name="Dirección">
+            </div>
+            <div class="campos__form ">
+                <input type="text" placeholder="Ciudad" name="Ciudad">
+            </div>
+            <div class="campos__form ">
+                <input type="text" placeholder="Usuario" name="Usuario">
+            </div>
+            <div class="campos__form">
+                <input type="text" placeholder="Password" name="Password">
+            </div>
+            <input class="btn" type="submit" value="registrar" name="registrar">
+        </form>
     </div>
     <script src="view/build/js/bundle.min.js"></script>
     <?php include 'includes/templates/footer.php' ?>

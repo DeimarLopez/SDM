@@ -3,10 +3,12 @@ html{
 }
 
 .contenedor__Header{
-    background: linear-gradient( $blanco,transparent);
-    z-index: 1;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,212,255,1) 100%);
+    z-index: 2;
     width: 100%;
     position: fixed;
+    padding: .8rem 0;
+    box-shadow: 0px 4px 17px -1px rgba(0,0,0,0.75);
     .header{
         margin: 0 auto;
         max-width: 125rem;
@@ -19,7 +21,7 @@ html{
             width: 8rem;
             height: 5rem;
             background-image: url('../img/logo-01.png');
-            background-size: 6rem;
+            background-size: 7rem;
             background-repeat: no-repeat;
             background-position: center center;
             margin-left: -1rem;
