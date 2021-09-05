@@ -6,7 +6,7 @@ class Conexion{
 
         $_URL='mysql:host=localhost;dbname=sdm';
         $_USER = 'root';
-        $_PASSWORD = '';
+        $_PASSWORD = 'NANCY';
 
         try{
             $con= new PDO($_URL,$_USER,$_PASSWORD);

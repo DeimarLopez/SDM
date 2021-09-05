@@ -3,7 +3,6 @@
 require_once('conexion.php');
 
 class ModeloAdministrador{
-
     public function UsuGen()
     {
         try {
@@ -75,6 +74,4 @@ class ModeloAdministrador{
         }
     }
 
-}
-    
-?>
+
