@@ -10,8 +10,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
-        
-        height: 45rem;
+        height: 33rem;
         transition: filter 400ms;
         display: flex;
         justify-content: flex-end;
@@ -20,10 +19,7 @@
         
 
         &:hover ~ h4{
-            font-size: 4rem;
-            max-width: 100%;
-            color: $cyanOs;
-            margin:0 auto;
+            display: none;
         }
 
         h4{

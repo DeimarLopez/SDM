@@ -1,0 +1,54 @@
+.content{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    form{
+        max-width: 80%;
+        @include tablet{
+            max-width: 27rem;
+            margin-left: 4rem;
+        }
+        .campos__form{
+            display: flex;
+            input , select{
+                background-color: #ffffffa9;
+                border: none;
+                font-size: 1.7rem;
+                padding: .7rem;
+                outline: none;
+                margin-bottom: 1rem;
+                border-radius: 2.5rem;
+                border: 2px solid $cyan;
+                width: 100%;
+            }
+
+
+        }
+
+        .btn{
+            width: 100%;
+            font-size: 2rem;
+            padding: 1rem;
+            background-color: $magenta;
+            color:$blanco;
+            margin-top: 2rem;
+            border-radius: 2.5rem;
+            border: none;
+
+            &:hover{
+                cursor: pointer;
+                background-color: $magentaOs;
+            }
+        }
+
+        .two{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            label{
+                margin-left: 1rem;
+            }
+        }
+    }
+}

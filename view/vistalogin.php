@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Salón de Belleza</title>
+    <title>7xEver</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="view/build/css/app.css">
 </head>
@@ -31,7 +31,7 @@
         </div>
     </section>
     <section class="destino">
-        <h4>Elige tu <span>Destino</span></h4>
+        <h4>Elige tu <span>Diseño</span></h4>
         <p>Lorem, ipsum dolores magnam optio nisi ullam illum, libero temporibus a i dolor sit amet consectetur adipisicing elit. Repellendus dolores magnam optio ribus a iure vero consequatur. I epellendus dolores magnam optio ribus a iure vero cons ncidunt aperiam, sunt voluptates except</p>
     </section>
     <section class="pasos">
@@ -40,8 +40,8 @@
         </div>
         <section class="containerPasos">
             <article class="datos__titulo">
-                <h2>Reserva tu viaje</h2>
-                <h3>Y vive la experiencia <span>de recorrer el mundo</span></h3>
+                <h2>Reserva tu Diseño</h2>
+                <h3>Y mejora la imagen <span>de tu empresa</span></h3>
             </article>
             <section class="gridpasos">
                 <article class="pasosArt">
@@ -98,7 +98,7 @@
             </form>
         </div>
     </section>
-    <div class="overlay" id="overlay">
+    <section class="overlay" id="overlay">
         <p class="cerrar">X</p>
         <form action="" method="POST">
             <div class="campos__form ">
@@ -143,6 +143,6 @@
             </div>
             <input class="btn" type="submit" value="registrar" name="registrar">
         </form>
-    </div>
+    </section>
     <script src="view/build/js/bundle.min.js"></script>
     <?php include 'includes/templates/footer.php' ?>
