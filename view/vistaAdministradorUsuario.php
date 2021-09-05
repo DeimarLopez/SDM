@@ -72,22 +72,22 @@
                 </div>
             </div>
             <div id="paso-3" class="seccion">
-                <form action="" method="POST">
+                <form action="" method="POST" id="insertarUsuGeneri">
                     <h3>Insertar Cliente</h3>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Cedula" name="Cedula" id="Cedula">
+                        <input type="text" placeholder="Cedula" name="Cedula" id="Cedula" value="">
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Nombre" name="Nombre" id="Nombre">
+                        <input type="text" placeholder="Nombre" name="Nombre" id="Nombre" value="">
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Apellido" name="Apellido" id="Apellido">
+                        <input type="text" placeholder="Apellido" name="Apellido" id="Apellido" value="">
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Correo" name="Correo" id="Correo">
+                        <input type="text" placeholder="Correo" name="Correo" id="Correo" value="">
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="°Celular" name="Celular" id="Celular">
+                        <input type="text" placeholder="°Celular" name="Celular" id="Celular" value="">
                     </div>
                     <div class="campos__form two">
                         <div class="col">
@@ -99,16 +99,16 @@
                         </div>
                         <div class="col">
                             <label for=""> Fecha de nacimiento</label>
-                            <input type="date" name="fecha" id="fecha">
+                            <input type="date" name="fecha" id="fecha" value="">
                         </div>
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Dirección" name="Dirección" id="Dirección">
+                        <input type="text" placeholder="Dirección" name="Dirección" id="Dirección" value="">
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Ciudad" name="Ciudad" id="Ciudad">
+                        <input type="text" placeholder="Ciudad" name="Ciudad" id="Ciudad" value="">
                     </div>
-                    <input class="btn" type="submit" value="registrar" name="registrar">
+                    <input class="btn" type="submit" value="registrar" name="registrar" value="">
                 </form>
             </div>
         </section>
