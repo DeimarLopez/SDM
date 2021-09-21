@@ -108,7 +108,7 @@
                     <div class="campos__form ">
                         <input type="text" placeholder="Ciudad" name="Ciudad" id="Ciudad" value="">
                     </div>
-                    <input class="btn" type="submit" value="registrar" name="registrar" value="">
+                    <input class="btn" id="botons" type="submit" value="registrar" name="registrar" value="">
                 </form>
             </div>
         </section>

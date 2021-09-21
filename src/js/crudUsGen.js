@@ -46,7 +46,8 @@ const insertar = document.querySelector('#insertarUsuGeneri');
 insertar.addEventListener('submit', e => {
     e.preventDefault();
     const datos = new FormData(insertar);
-    console.log(datos.get('Cedula'));
+    /* console.log(datos.get('Cedula')); */
+    console.log(datos.get('registrar'));
 
     
     fetch('insertUsGen.php', {
@@ -199,5 +200,9 @@ function cargarFormulario(datos){
         document.querySelector('#fecha').value=`${fechanaci}`;
         document.querySelector('#Dirección').value=`${direc}`;
         document.querySelector('#Ciudad').value=`${ciudad}`;
+        
     });
+    const boton = document.querySelector('#botons');
+    boton.name= "actualizar";
+    boton.value= "Actualizar";
 }

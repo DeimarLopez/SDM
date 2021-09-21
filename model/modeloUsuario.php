@@ -8,16 +8,17 @@ class ModeloUsuario
     public function login($nom, $pass)
     {
         try {
-            $sql = "SELECT * FROM tb_usuarios inner join tb_usersgeneri using(doc) WHERE nomusu = ? and clave = ?;";
+            $sql = "SELECT * FROM tb_usuarios inner join tb_usersgeneri using(doc) WHERE nomusu = ?;";
             $cnn = Conexion::conexionbd()->prepare($sql);
             $cnn->bindParam(1, $nom);
-            $cnn->bindParam(2, $pass);
             $cnn->execute();
-            $res = $cnn->fetchALL();
+            $res = $cnn->fetchALL();            
         } catch (Exception $e) {
             echo 'Error en login = ' . $e;
         }
-        return $res;
+        if(password_verify($pass,$res[0][2])){
+            return $res;
+        } 
     }
 
 

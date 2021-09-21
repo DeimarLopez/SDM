@@ -5,11 +5,10 @@ $log = new ModeloUsuario();
 
 if(isset($_POST['ingresar'])){
 
-    $nom = $_POST['usu'];
-    $pass = $_POST['pass'];
+    $nom = $_POST['usu'] ?? '';
+    $pass = $_POST['pass'] ?? '';
 
-    $usu = $log->login($nom,$pass);
-
+    $usu = $log->login($nom,$pass) ?? [];
     if(count($usu)>=1){
         foreach($usu as $f){
             session_start();
@@ -50,7 +49,9 @@ if(isset($_POST['registrar'])){
     $Dirección = $_POST['Dirección'];
     $Ciudad = $_POST['Ciudad'];
     $Usuario = $_POST['Usuario'];
-    $Password = $_POST['Password'];
+    $clave = $_POST['Password'];
+
+    $Password = password_hash($clave,PASSWORD_DEFAULT);
 
     $log->registrar($Cedula, $Nombre , $Apellido, $Correo, $Celular, $genero, $fecha, $Dirección, $Ciudad, $Usuario, $Password);
 
