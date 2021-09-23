@@ -16,7 +16,7 @@
             </div>
             <nav class="nav">
                 <a href="Administrador.php">Inicio</a>
-                <a href="/sdm/Administrador.php?c=Usuario">Usuarios</a>
+                <a href="?v=usuario">Usuarios</a>
                 <a href="#galeria">Clientes</a>
                 <a href="#login">Productos</a>
                 <form method="POST" action="index.php">
@@ -32,4 +32,4 @@
         </section>
     </main>
     <script src="view/build/js/bundle.min.js"></script>
-    <?php include 'includes/templates/footer.php' ?>
+    <?php include 'view/includes/templates/footer.php' ?>

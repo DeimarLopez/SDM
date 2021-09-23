@@ -9,11 +9,13 @@ class ModeloAdministrador{
             $sql = 'SELECT * FROM tb_usersgeneri;';
             $cnn = Conexion::conexionbd()->prepare($sql);
             $cnn->execute();
-            $datos=$cnn->fetchAll(PDO::FETCH_ASSOC);
+            while ($fila = $cnn->fetch()) {
+                $datos[] = $fila;
+            }
         } catch (Exception $e) {
-            echo 'Error en la consulta empleado = ' . $e;
+            echo 'Error en la consulta usuariogenerico = ' . $e;
         }
-        echo json_encode($datos);
+        return $datos;
     }
 
     public function BusUsuGen($value)
@@ -24,11 +26,29 @@ class ModeloAdministrador{
             $cnn->bindParam(1, $value);
             $cnn->bindParam(2, $value);
             $cnn->execute();
-            $datos=$cnn->fetchAll(PDO::FETCH_ASSOC);
+            while ($fila = $cnn->fetch()) {
+                $datos[] = $fila;
+            }
         } catch (Exception $e) {
             echo 'Error en la consulta empleado = ' . $e;
         }
-        echo json_encode($datos);
+        return $datos;
+    }
+
+    public function BusUsu($value)
+    {
+        try {
+            $sql = 'SELECT * FROM sdm.tb_usuarios WHERE doc=?';
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->bindParam(1, $value);
+            $cnn->execute();
+            while ($fila = $cnn->fetch()) {
+                $datos[] = $fila;
+            }
+        } catch (Exception $e) {
+            echo 'Error en la consulta empleado = ' . $e;
+        }
+        return $datos;
     }
 
     public function EliUsuGen($value)
@@ -42,6 +62,7 @@ class ModeloAdministrador{
             echo 'Error en la consulta empleado = ' . $e;
         }
     }
+
     public function registrarUsGen($Cedula, $Nombre, $Apellido, $Correo, $Celular, $genero, $fecha, $Dirección, $Ciudad)
     {
         try {
@@ -63,7 +84,12 @@ class ModeloAdministrador{
                 $cnn->bindParam(7, $fecha);
                 $cnn->bindParam(8, $Dirección);
                 $cnn->bindParam(9, $Ciudad);
-                $cnn->execute();
+                if($cnn->execute()){
+                    $res = 1;
+                }else{
+                    $res = 0;
+                }
+                return $res;
             } else 
             {
                echo '<script>alert("Ya cuenta con un Usuario")</script>';

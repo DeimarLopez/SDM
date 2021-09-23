@@ -16,7 +16,7 @@
             </div>
             <nav class="nav">
                 <a href="Administrador.php">Inicio</a>
-                <a href="/SEVEN_INICIO/Administrador.php?c=Usuario">Usuarios</a>
+                <a href="?v=usuario">Usuarios</a>
                 <a href="#galeria">Clientes</a>
                 <a href="#login">Productos</a>
                 <form method="POST" action="index.php">
@@ -28,66 +28,35 @@
     <main class="main mainCrud">
         <section class="barraCrud">
             <nav class="tabs">
-                <button type="button">
-                    <img data-paso="1" src="view/build/img/search.webp" alt="">
-                </button>
-                <button type="button" id="btntable">
+                 <a href="?v=usuariobuscar">
+                    <img src="view/build/img/search.webp" alt="">
+                </a>
+                <a href="?v=usuario">
                     <img  data-paso="2" src="view/build/img/table.webp" alt="">
-                </button>
-                <button type="button">
+                </a>
+                <a href="?v=usuariocrear" class="actual">
                     <img data-paso="3" src="view/build/img/pencil.webp" alt="">
-                </button>
+                </a>
             </nav>
         </section>
         <section class="content">
-            <div id="paso-1" class="seccion">
-                <form method="POST" id="formulario">
-                    <input type="text" name="dato" id="dato">
-                    <input type="submit" name="buscar" value="buscar" id="buscar">
-                </form>
-            </div>
-            <div id="paso-2" class="seccion">
-                <div class="tabla">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Documento</th>
-                                <th>Nombre</th>
-                                <th>Apellido</th>
-                                <th>Correo</th>
-                                <th>Celular</th>
-                                <th>Sexo</th>
-                                <th>Nacimineto</th>
-                                <th>Ingreso</th>
-                                <th>Dirección</th>
-                                <th>Ciudad</th>
-                                <th>Actualizar</th>
-                                <th>Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody class="tbody">
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
             <div id="paso-3" class="seccion">
                 <form action="" method="POST" id="insertarUsuGeneri">
-                    <h3>Insertar Cliente</h3>
+                    <h3>Insertar Usuario</h3>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Cedula" name="Cedula" id="Cedula" value="">
+                        <input type="text" placeholder="Cedula" name="cedula" id="Cedula" value="" required>
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Nombre" name="Nombre" id="Nombre" value="">
+                        <input type="text" placeholder="Nombre" name="nombre" id="Nombre" value="" required>
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Apellido" name="Apellido" id="Apellido" value="">
+                        <input type="text" placeholder="Apellido" name="apellido" id="apellido" value="" required>
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Correo" name="Correo" id="Correo" value="">
+                        <input type="text" placeholder="Correo" name="correo" id="correo" value="" required>
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="°Celular" name="Celular" id="Celular" value="">
+                        <input type="text" placeholder="°Celular" name="celular" id="celular" value="" required>
                     </div>
                     <div class="campos__form two">
                         <div class="col">
@@ -103,10 +72,10 @@
                         </div>
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Dirección" name="Dirección" id="Dirección" value="">
+                        <input type="text" placeholder="Dirección" name="dirección" id="Dirección" value="">
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Ciudad" name="Ciudad" id="Ciudad" value="">
+                        <input type="text" placeholder="Ciudad" name="ciudad" id="Ciudad" value="">
                     </div>
                     <input class="btn" id="botons" type="submit" value="registrar" name="registrar" value="">
                 </form>
@@ -114,5 +83,4 @@
         </section>
     </main>
     <script src="view/build/js/bundle.min.js"></script>
-    <!-- <script src="src/js/app.js"></script> -->
-    <?php include 'includes/templates/footer.php' ?>
+    <?php include 'view/includes/templates/footer.php' ?>
