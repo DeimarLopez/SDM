@@ -2,7 +2,8 @@
 
 require_once('conexion.php');
 
-class ModeloAdministrador{
+class ModeloAdministrador
+{
     public function UsuGen()
     {
         try {
@@ -71,8 +72,7 @@ class ModeloAdministrador{
             $cnn->bindParam(1, $Cedula);
             $cnn->execute();
 
-            if (!$cnn->fetch()) 
-            {
+            if (!$cnn->fetch()) {
                 $sql1 = "CALL registroUsGen (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $cnn = Conexion::conexionbd()->prepare($sql1);
                 $cnn->bindParam(1, $Cedula);
@@ -84,21 +84,42 @@ class ModeloAdministrador{
                 $cnn->bindParam(7, $fecha);
                 $cnn->bindParam(8, $Dirección);
                 $cnn->bindParam(9, $Ciudad);
-                if($cnn->execute()){
+                if ($cnn->execute()) {
                     $res = 1;
-                }else{
+                } else {
                     $res = 0;
                 }
                 return $res;
-            } else 
-            {
-               echo '<script>alert("Ya cuenta con un Usuario")</script>';
+            } else {
+                echo '<script>alert("Ya cuenta con un Usuario")</script>';
             }
-        } catch (Exception $e) 
-        {
+        } catch (Exception $e) {
             echo 'Error en la registrarse usuarios = ' . $e;
         }
     }
 
-
+    public function actualizarUsGen($Cedula, $Nombre, $Apellido, $Correo, $Celular, $genero, $fecha, $Dirección, $Ciudad)
+    {
+        try {
+            $sql1 = "UPDATE tb_usersgeneri SET nom = ?, ape = ?, correo = ?, celular = ?, sexo = ?, fechanaci = ?, direc = ?, ciudad = ? WHERE (doc = ?);";
+            $cnn = Conexion::conexionbd()->prepare($sql1);
+            $cnn->bindParam(1, $Nombre);
+            $cnn->bindParam(2, $Apellido);
+            $cnn->bindParam(3, $Correo);
+            $cnn->bindParam(4, $Celular);
+            $cnn->bindParam(5, $genero);
+            $cnn->bindParam(6, $fecha);
+            $cnn->bindParam(7, $Dirección);
+            $cnn->bindParam(8, $Ciudad);
+            $cnn->bindParam(9, $Cedula);
+            if ($cnn->execute()) {
+                $res = 1;
+            } else {
+                $res = 0;
+            }
+        } catch (Exception $e) {
+            echo 'Error en la registrarse usuarios = ' . $e;
+        }
+        return $res;
+    }
 }

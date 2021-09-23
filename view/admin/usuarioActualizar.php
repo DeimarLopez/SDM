@@ -73,12 +73,12 @@
                         </div>
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Dirección" name="dirección" id="Dirección" value="<?php echo $datos[0][7] ?>">
+                        <input type="text" placeholder="Dirección" name="dirección" id="Dirección" value="<?php echo $datos[0][8] ?>">
                     </div>
                     <div class="campos__form ">
-                        <input type="text" placeholder="Ciudad" name="ciudad" id="Ciudad" value="<?php echo $datos[0][8] ?>">
+                        <input type="text" placeholder="Ciudad" name="ciudad" id="Ciudad" value="<?php echo $datos[0][9] ?>">
                     </div>
-                    <input class="btn" id="botons" type="submit" value="Actulizar" name="actulizar">
+                    <input class="btn" id="botons" type="submit" value="Actualizar" name="actualizarUs">
                 </form>
             </div>
         </section>

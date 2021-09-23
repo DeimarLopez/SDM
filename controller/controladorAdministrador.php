@@ -78,11 +78,31 @@ session_start();
         break;
 
         case 'usuarioactualizar':
+            if(isset($_POST['actualizarUs'])){
+
+                $cedula = $_POST['cedula'];
+                $nombre = $_POST['nombre'];
+                $apellido = $_POST['apellido'];
+                $correo = $_POST['correo'];
+                $celular = $_POST['celular'];
+                $genero = $_POST['genero'];
+                $fecha = $_POST['fecha'];
+                $dirección = $_POST['dirección'];
+                $ciudad = $_POST['ciudad'];
+
+                $datos = $modeloAdministrador->actualizarUsGen($cedula, $nombre, $apellido, $correo, $celular, $genero, $fecha, $dirección, $ciudad);
+
+                if($datos > 0){
+                    echo'<script>alert("El usuario se actualizo")</script>';
+                    header('Location:Administrador.php?v=usuario');
+                }else{
+                    echo'<script>alert("El usuario no se actualizo")</script>';
+                    header('Location:Administrador.php?v=usuario');
+                }
+            }
             if(isset($_POST['actualizar'])){
                 $id = $_POST['id'];
                 $datos = $modeloAdministrador->BusUsuGen($id);
-                var_dump($datos) ;
-                /* exit; */
                 require_once('view/admin/usuarioActualizar.php');
             }else{
                 require_once('view/admin/index.php');     
