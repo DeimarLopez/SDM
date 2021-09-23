@@ -38,6 +38,7 @@ class ModeloAdministrador
 
     public function BusUsu($value)
     {
+        $datos = [];
         try {
             $sql = 'SELECT * FROM sdm.tb_usuarios WHERE doc=?';
             $cnn = Conexion::conexionbd()->prepare($sql);
