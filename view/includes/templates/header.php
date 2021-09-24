@@ -18,7 +18,7 @@
                 <a href="Administrador.php">Home</a>
                 <a href="?v=cliente">Clientes</a>
                 <a href="#galeria">Usuarios</a>
-                <a href="#login">Productos</a>
+                <a href="?v=producto">Productos</a>
                 <form method="POST" action="index.php">
                     <input type="submit" name="Cerrar" value="Cerrar Sesion" class="btn--cerrar">
                 </form>

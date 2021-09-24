@@ -1,0 +1,41 @@
+.galeriapro{
+    display: grid;
+    margin: 9rem 9rem;
+    max-height: 70vh;
+    overflow: auto;
+    @include tablet{
+        margin-bottom: 9rem;
+        gap: 3rem;
+        grid-template-columns: repeat(4,1fr);
+    }
+    .item{
+        background-color: $cyan;
+        padding: .5rem;
+        width: 23rem;
+        img{
+            height: 23rem;
+            width: 100%;
+            object-fit: cover;
+        }
+        h1{
+            font-size: 3rem;
+            margin-bottom: 0;
+            padding-bottom: .5rem;
+            border-bottom: .2rem solid $blanco;
+        }
+        form{
+            margin-left: 0;
+        display: inline;
+        }
+        p{
+            font-size: 1.7rem;
+            margin: 1rem .4rem;
+            height: 8rem;
+            overflow: auto;
+            background-color: $blanco;
+            padding: .5rem;
+            color: $cyan;
+            
+        }
+    }
+}

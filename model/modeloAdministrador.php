@@ -123,4 +123,48 @@ class ModeloAdministrador
         }
         return $res;
     }
+
+
+    public function proGen()
+    {
+        try {
+            $sql = 'SELECT * FROM tb_productos;';
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->execute();
+            while ($fila = $cnn->fetch()) {
+                $datos[] = $fila;
+            }
+        } catch (Exception $e) {
+            echo 'Error en la consulta producto = ' . $e;
+        }
+        return $datos;
+    }
+
+    public function incertarProducto($nombre,$description,$tamaño,$imagen)
+    {
+        $res = 0;
+        try{
+            $sql = "INSERT INTO tb_productos (tamaPro, imgProd, nomProd, desProd) VALUES (?, ?, ?, ?);";
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->bindParam(1, $tamaño);
+
+            $array = explode(".",$imagen['imagen']['name']);
+            $termination = ".".$array[1];
+
+            $ruta = 'view/img/' . $nombre . rand() . $termination;
+            move_uploaded_file($imagen['imagen']['tmp_name'] , $ruta);
+
+            $cnn->bindParam(2, $ruta);
+            $cnn->bindParam(3, $nombre);
+            $cnn->bindParam(4, $description);
+            if ($cnn->execute()) {
+                $res = 1;
+            } else {
+                $res = 0;
+            }
+        }catch(Exception $e){
+            echo 'Error en insertar producto = ' . $e;
+        }
+        return $res;
+    }
 }

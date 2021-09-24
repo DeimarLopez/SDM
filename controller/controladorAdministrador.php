@@ -57,7 +57,7 @@ switch ($_GET['v'] ?? '') {
             }
             $datos = $modeloAdministrador->BusUsuGen($dato);
             if ($datos) {
-                require_once('view/admin/index.php');
+                require_once('view/admin/cliente.php');
             } else {
                 echo '<script>alert("cliente no existente");</script>';
                 header('Location:Administrador.php?v=clientebuscar');
@@ -120,7 +120,28 @@ switch ($_GET['v'] ?? '') {
         }
         require_once('view/admin/clienteActualizar.php');
         break;
+    case 'producto':
 
+        $datos = $modeloAdministrador->proGen();
+        require_once('view/admin/productos/producto.php');
+    break;
+    case 'productocrear':
+
+        if(isset($_POST['registrar'])){
+            $nombre = $_POST['nombre'];
+            $description = $_POST['description'];
+            $tamaño = $_POST['tamaño'];
+            $imagen = $_FILES;
+            $datos = $modeloAdministrador->incertarProducto($nombre, $description, $tamaño, $imagen);
+            if ($datos > 0) {
+                header('Location:Administrador.php?v=producto');
+            } else {
+                header('Location:Administrador.php?v=productocrear');
+            }
+        }
+        require_once('view/admin/productos/productoCrear.php');
+
+    break;
     default:
         require_once('view/admin/index.php');
         break;
