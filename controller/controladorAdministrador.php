@@ -27,13 +27,13 @@ if ($genero == "M") {
 }
 
 switch ($_GET['v'] ?? '') {
-    case 'usuario':
+    case 'cliente':
 
         if (isset($_POST['eliminar'])) {
             $value = $_POST['id'];
             $exits = $modeloAdministrador->BusUsu($value);
             if (count($exits)>0) {
-                echo '<script> alert("Elimina Primero El Usuario");</script>';
+                echo '<script> alert("Elimina Primero El usuario");</script>';
             } else {
                 $modeloAdministrador->EliUsuGen($value);
             }
@@ -41,29 +41,32 @@ switch ($_GET['v'] ?? '') {
         }
 
         $datos = $modeloAdministrador->UsuGen();
-        require_once('view/admin/usuario.php');
+        require_once('view/admin/cliente.php');
 
         break;
 
-    case 'usuariobuscar':
+    case 'clientebuscar':
 
         if (isset($_POST['buscar'])) {
+
+
+
             $dato = $_POST['dato'];
             if ($dato == '') {
                 $dato = $nomusu;
             }
             $datos = $modeloAdministrador->BusUsuGen($dato);
             if ($datos) {
-                require_once('view/admin/usuario.php');
+                require_once('view/admin/index.php');
             } else {
-                echo '<script>alert("Usuario no existente");</script>';
-                header('Location:Administrador.php?v=usuariobuscar');
+                echo '<script>alert("cliente no existente");</script>';
+                header('Location:Administrador.php?v=clientebuscar');
             }
         }
-        require_once('view/admin/usuarioBuscar.php');
+        require_once('view/admin/clienteBuscar.php');
 
         break;
-    case 'usuariocrear':
+    case 'clientecrear':
 
         if (isset($_POST['registrar'])) {
             $cedula = $_POST['cedula'];
@@ -78,17 +81,17 @@ switch ($_GET['v'] ?? '') {
 
             $datos = $modeloAdministrador->registrarUsGen($cedula, $nombre, $apellido, $correo, $celular, $genero, $fecha, $dirección, $ciudad);
             if ($datos > 0) {
-                echo '<script>alert("El usuario se registro")</script>';
-                header('Location:Administrador.php?v=usuario');
+                echo '<script>alert("El cliente se registro")</script>';
+                header('Location:Administrador.php?v=cliente');
             } else {
-                echo '<script>alert("El usuario no se registro")</script>';
-                header('Location:Administrador.php?v=usuariocrear');
+                echo '<script>alert("El cliente no se registro")</script>';
+                header('Location:Administrador.php?v=clientecrear');
             }
         }
-        require_once('view/admin/usuarioCrear.php');
+        require_once('view/admin/clienteCrear.php');
         break;
 
-    case 'usuarioactualizar':
+    case 'clienteactualizar':
         if (isset($_POST['actualizarUs'])) {
 
             $cedula = $_POST['cedula'];
@@ -104,20 +107,18 @@ switch ($_GET['v'] ?? '') {
             $datos = $modeloAdministrador->actualizarUsGen($cedula, $nombre, $apellido, $correo, $celular, $genero, $fecha, $dirección, $ciudad);
 
             if ($datos > 0) {
-                echo '<script>alert("El usuario se actualizo")</script>';
-                header('Location:Administrador.php?v=usuario');
+                echo '<script>alert("El cliente se actualizo")</script>';
+                header('Location:Administrador.php?v=cliente');
             } else {
-                echo '<script>alert("El usuario no se actualizo")</script>';
-                header('Location:Administrador.php?v=usuario');
+                echo '<script>alert("El cliente no se actualizo")</script>';
+                header('Location:Administrador.php?v=cliente');
             }
         }
         if (isset($_POST['actualizar'])) {
             $id = $_POST['id'];
             $datos = $modeloAdministrador->BusUsuGen($id);
-            require_once('view/admin/usuarioActualizar.php');
-        } else {
-            require_once('view/admin/index.php');
         }
+        require_once('view/admin/clienteActualizar.php');
         break;
 
     default:
