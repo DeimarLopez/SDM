@@ -49,8 +49,6 @@ switch ($_GET['v'] ?? '') {
 
         if (isset($_POST['buscar'])) {
 
-
-
             $dato = $_POST['dato'];
             if ($dato == '') {
                 $dato = $nomusu;
@@ -58,11 +56,13 @@ switch ($_GET['v'] ?? '') {
             $datos = $modeloAdministrador->BusUsuGen($dato);
             if ($datos) {
                 require_once('view/admin/cliente.php');
+                exit;
             } else {
                 echo '<script>alert("cliente no existente");</script>';
                 header('Location:Administrador.php?v=clientebuscar');
             }
         }
+
         require_once('view/admin/clienteBuscar.php');
 
         break;
@@ -122,8 +122,32 @@ switch ($_GET['v'] ?? '') {
         break;
     case 'producto':
 
+        if (isset($_POST['eliminar'])) {
+            $value = $_POST['id'];
+            $modeloAdministrador->EliPro($value);     
+        }
+
         $datos = $modeloAdministrador->proGen();
         require_once('view/admin/productos/producto.php');
+    break;
+    case 'productobuscar':
+
+        if (isset($_POST['buscar'])) {
+
+            $dato = $_POST['dato'];
+            if ($dato == '') {
+                $dato = $nomPro;
+            }
+            $datos = $modeloAdministrador->BusPro($dato);
+            if ($datos) {
+                require_once('view/admin/productos/producto.php');
+                exit;
+            } else {
+                echo '<script>alert("cliente no existente");</script>';
+                header('Location:Administrador.php?v=clientebuscar');
+            }
+        }
+        require_once('view/admin/productos/productoBuscar.php');
     break;
     case 'productocrear':
 

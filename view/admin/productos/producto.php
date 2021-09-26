@@ -21,12 +21,12 @@
                         <h1><?php echo $dato[3] ?></h1>
                         <p><?php echo $dato[4] ?></p>
                         <form action="" class="btn1">
-                            <input type="hidden" value="<?php echo $dato[0] ?>">
+                            <input type="hidden" value="<?php echo $dato[0] ?>" name="id">
                             <input type="submit" value="Actualizar">
                         </form>
-                        <form action="" class="btn2">
-                            <input type="hidden" value="<?php echo $dato[0] ?>">
-                            <input type="submit" value="Eliminar">
+                        <form method="POST" action="" class="btn2">
+                            <input type="hidden" value="<?php echo $dato[0] ?>" name="id">
+                            <input type="submit" value="Eliminar" name="eliminar">
                         </form>
                     </article>
                     <?php } ?>

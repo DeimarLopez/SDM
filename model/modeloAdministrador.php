@@ -140,6 +140,25 @@ class ModeloAdministrador
         return $datos;
     }
 
+    public function BusPro($value)
+    {
+        $datos = [];
+        try {
+            $value = '%'.$value.'%';
+            $sql = 'SELECT * FROM sdm.tb_productos WHERE nomProd like  ? or desProd like ?;';
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->bindParam(1, $value);
+            $cnn->bindParam(2, $value);
+            $cnn->execute();
+            while ($fila = $cnn->fetch()) {
+                $datos[] = $fila;
+            }
+        } catch (Exception $e) {
+            echo 'Error en la consulta producto = ' . $e;
+        }
+        return $datos;
+    }
+
     public function incertarProducto($nombre,$description,$tamaño,$imagen)
     {
         $res = 0;
@@ -166,5 +185,17 @@ class ModeloAdministrador
             echo 'Error en insertar producto = ' . $e;
         }
         return $res;
+    }
+
+    public function EliPro($value)
+    {
+        try {
+            $sql = 'DELETE FROM tb_productos  WHERE idProd=?';
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->bindParam(1, $value);
+            $cnn->execute();
+        } catch (Exception $e) {
+            echo 'Error en la consulta producto = ' . $e;
+        }
     }
 }
