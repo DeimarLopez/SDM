@@ -27,6 +27,7 @@ if ($genero == "M") {
 }
 
 switch ($_GET['v'] ?? '') {
+    /*cliente */
     case 'cliente':
 
         if (isset($_POST['eliminar'])) {
@@ -48,7 +49,6 @@ switch ($_GET['v'] ?? '') {
     case 'clientebuscar':
 
         if (isset($_POST['buscar'])) {
-
 
 
             $dato = $_POST['dato'];
@@ -120,6 +120,8 @@ switch ($_GET['v'] ?? '') {
         }
         require_once('view/admin/clienteActualizar.php');
         break;
+
+    /*producto */
     case 'producto':
 
         $datos = $modeloAdministrador->proGen();
@@ -142,8 +144,95 @@ switch ($_GET['v'] ?? '') {
         require_once('view/admin/productos/productoCrear.php');
 
     break;
-    default:
-        require_once('view/admin/index.php');
+
+    /*usuario */
+    case 'usuario':
+
+        if (isset($_POST['eliminar'])) {
+            $value = $_POST['id'];
+            $exits = $modeloAdministrador->BusUsu($value);
+            if (count($exits)>0) {
+                echo '<script> alert("Elimina Primero El usuario");</script>';
+            } else {
+                $modeloAdministrador->EliUsu($value);
+            }
+                
+        }
+
+        $datos = $modeloAdministrador->Usuario();
+        require_once('view/admin/usuario.php');
+
         break;
+
+    case 'usuariobuscar':
+
+        if (isset($_POST['buscar'])) {
+
+            $dato = $_POST['dato'];
+            if ($dato == '') {
+                $dato = $nomusu;
+            }
+            $datos = $modeloAdministrador->BusUsu($dato);
+            if ($datos) {
+                require_once('view/admin/usuario.php');
+            } else {
+                echo '<script>alert("usuario no existente");</script>';
+                header('Location:Administrador.php?v=usuariobuscar');
+            }
+        }
+        require_once('view/admin/usuarioBuscar.php');
+
+        break;
+    case 'usuariocrear':
+
+        if (isset($_POST['registrar'])) {
+            $doc = $_POST['doc'];
+            $nomusu = $_POST['nomusu'];
+            $clave = $_POST['clave'];
+            $rol = $_POST['rol'];
+            $estado = $_POST['estado'];
+            $imagen = $_FILES;
+
+            $datos = $modeloAdministrador->registrarUsu($doc, $nomusu, $clave, $rol, $estado, $imagen);
+            if ($datos > 0) {
+                echo '<script>alert("El usuario se registro")</script>';
+                header('Location:Administrador.php?v=usuario');
+            } else {
+                echo '<script>alert("El usuario no se registro")</script>';
+                header('Location:Administrador.php?v=usuariocrear');
+            }
+        }
+        require_once('view/admin/usuarioCrear.php');
+        break;
+
+    case 'usuarioactualizar':
+        if (isset($_POST['actualizarUsu'])) {
+            $doc = $_POST['doc'];
+            $nomusu = $_POST['nomusu'];
+            $clave = $_POST['clave'];
+            $rol = $_POST['rol'];
+            $estado = $_POST['estado'];
+            $imagen = $_POST['imagen'];
+
+            $datos = $modeloAdministrador->actualizarUsu($doc, $nomusu, $clave, $rol, $estado, $imagen);
+
+            if ($datos > 0) {
+                echo '<script>alert("El usuario se actualizo")</script>';
+                header('Location:Administrador.php?v=usuario');
+            } else {
+                echo '<script>alert("El usuario no se actualizo")</script>';
+                header('Location:Administrador.php?v=usuario');
+            }
+        }
+        if (isset($_POST['actualizarUSU'])) {
+            $id = $_POST['id'];
+            $datos = $modeloAdministrador->BusUsu($id);
+        }
+        require_once('view/admin/usuarioActualizar.php');
+        break;
+
+    default:
+    require_once('view/admin/index.php');
+    break;
 }
 

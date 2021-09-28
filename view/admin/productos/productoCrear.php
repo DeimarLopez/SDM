@@ -28,7 +28,7 @@
                     </div>
                     <div class="campos__form ">
                         <select name="tamaño" id="">
-                            <option value="1" selected disabled>Tañamo</option>
+                            <option value="1" selected disabled>Tamaño</option>
                             <option value="1">Estandar</option>
                             <option value="2">Pequeño</option>
                             <option value="3">Mediano</option>
@@ -38,7 +38,7 @@
                         </select>
                     </div>
                     <div class="campos__form ">
-                        <label for="imagen" for="imagen" id="labelfile">Caraga Img</label>
+                        <label for="imagen" for="imagen" id="labelfile">Carga Img</label>
                         <input type="file" placeholder="imagen" name="imagen" id="imagen" value="" required>
                     </div>
                     <input class="btn" id="botons" type="submit" value="registrar" name="registrar" value="">

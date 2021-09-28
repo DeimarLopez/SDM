@@ -4,6 +4,7 @@ require_once('conexion.php');
 
 class ModeloAdministrador
 {
+    /*cliente conexion */
     public function UsuGen()
     {
         try {
@@ -40,9 +41,10 @@ class ModeloAdministrador
     {
         $datos = [];
         try {
-            $sql = 'SELECT * FROM sdm.tb_usuarios WHERE doc=?';
+            $sql = 'SELECT * FROM tb_usuarios WHERE doc=? or nomusu=?';
             $cnn = Conexion::conexionbd()->prepare($sql);
             $cnn->bindParam(1, $value);
+            $cnn->bindParam(2, $value);
             $cnn->execute();
             while ($fila = $cnn->fetch()) {
                 $datos[] = $fila;
@@ -95,7 +97,7 @@ class ModeloAdministrador
                 echo '<script>alert("Ya cuenta con un Usuario")</script>';
             }
         } catch (Exception $e) {
-            echo 'Error en la registrarse usuarios = ' . $e;
+            echo 'Error en registrar usuarios = ' . $e;
         }
     }
 
@@ -119,12 +121,12 @@ class ModeloAdministrador
                 $res = 0;
             }
         } catch (Exception $e) {
-            echo 'Error en la registrarse usuarios = ' . $e;
+            echo 'Error en registrar usuarios = ' . $e;
         }
         return $res;
     }
 
-
+    /*productos conexion */
     public function proGen()
     {
         try {
@@ -164,6 +166,87 @@ class ModeloAdministrador
             }
         }catch(Exception $e){
             echo 'Error en insertar producto = ' . $e;
+        }
+        return $res;
+    }
+
+    /*usuario conexion */
+    public function Usuario()
+    {
+        try {
+            $sql = 'SELECT * FROM tb_usuarios;';
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->execute();
+            while ($fila = $cnn->fetch()) {
+                $datos[] = $fila;
+            }
+        } catch (Exception $e) {
+            echo 'Error en la consulta usuario = ' . $e;
+        }
+        return $datos;
+    }
+
+    public function insertarUsu($doc, $nomusu, $clave, $rol, $estado, $imagen)
+    {
+        $res = 0;
+        try{
+            $sql = "INSERT INTO tb_usuarios (doc, nomusu, clave, rol, estado,imagen) VALUES (?, ?, ?, ?, ?, ?);";
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->bindParam(1, $doc);
+            $cnn->bindParam(2, $nomusu);
+            $cnn->bindParam(3, $clave);
+            $cnn->bindParam(4, $rol);
+            $cnn->bindParam(5, $estado);
+
+            $array = explode(".",$imagen['imagen']['name']);
+            $termination = ".".$array[1];
+
+            $ruta = 'view/img/' . $nombre . rand() . $termination;
+            move_uploaded_file($imagen['imagen']['tmp_name'] , $ruta);
+
+            $cnn->bindParam(6, $ruta);
+            
+            if ($cnn->execute()) {
+                $res = 1;
+            } else {
+                $res = 0;
+            }
+        }catch(Exception $e){
+            echo 'Error en insertar producto = ' . $e;
+        }
+        return $res;
+    }
+
+    public function EliUsu($value)
+    {
+        try {
+            $sql = 'DELETE FROM tb_usuarios WHERE doc=?';
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->bindParam(1, $value);
+            $cnn->execute();
+        } catch (Exception $e) {
+            echo 'Error en la consulta = ' . $e;
+        }
+    }
+
+    public function actualizarUsu($doc, $nomusu, $clave, $rol, $estado, $imagen)
+    {
+        try {
+            $sql1 = "UPDATE tb_usuarios SET nomusu = ?, clave = ?, rol = ?, estado = ?, imagen = ? WHERE (doc = ?);";
+            $cnn = Conexion::conexionbd()->prepare($sql1);
+            $cnn->bindParam(1, $nomusu);
+            $cnn->bindParam(2, $clave);
+            $cnn->bindParam(3, $rol);
+            $cnn->bindParam(4, $estado);
+            $cnn->bindParam(5, $imagen);
+            $cnn->bindParam(6, $doc);
+            if ($cnn->execute()) {
+                $res = 1;
+            } else {
+                $res = 0;
+            }
+        } catch (Exception $e) {
+            echo 'Error en registrar usuarios = ' . $e;
         }
         return $res;
     }

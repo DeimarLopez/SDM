@@ -22,29 +22,32 @@ class ModeloUsuario
     }
 
 
-    public function registrarUsu($doc, $nomusu, $clave, $rol, $estado, $imagen, $Usuario, $Password)
+    public function registrar($Cedula, $Nombre, $Apellido, $Correo, $Celular, $genero, $fecha, $Dirección, $Ciudad, $Usuario, $Password)
     {
         try {
             $sql = "SELECT doc FROM tb_usuarios WHERE doc = (?)";
             $cnn = Conexion::conexionbd()->prepare($sql);
-            $cnn->bindParam(1, $doc);
+            $cnn->bindParam(1, $Cedula);
             $cnn->execute();
 
             if (!$cnn->fetch()) 
             {
-                $sql1 = "CALL registroUsu (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $sql1 = "CALL registroUsGen (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $cnn = Conexion::conexionbd()->prepare($sql1);
-                $cnn->bindParam(1, $doc);
-                $cnn->bindParam(2, $nomusu);
-                $cnn->bindParam(3, $clave);
-                $cnn->bindParam(4, $rol);
-                $cnn->bindParam(5, $estado);
-                $cnn->bindParam(6, $imagen);
+                $cnn->bindParam(1, $Cedula);
+                $cnn->bindParam(2, $Nombre);
+                $cnn->bindParam(3, $Apellido);
+                $cnn->bindParam(4, $Correo);
+                $cnn->bindParam(5, $Celular);
+                $cnn->bindParam(6, $genero);
+                $cnn->bindParam(7, $fecha);
+                $cnn->bindParam(8, $Dirección);
+                $cnn->bindParam(9, $Ciudad);
                 $cnn->execute();
 
                 $sql2 = "CALL registroUsCli (?, ?, ?)";
                 $cnn = Conexion::conexionbd()->prepare($sql2);
-                $cnn->bindParam(1, $doc);
+                $cnn->bindParam(1, $Cedula);
                 $cnn->bindParam(2, $Usuario);
                 $cnn->bindParam(3, $Password);
                 $cnn->execute();
@@ -54,7 +57,7 @@ class ModeloUsuario
             }
         } catch (Exception $e) 
         {
-            echo 'Error en  registrar usuarios = ' . $e;
+            echo 'Error en la registrarse usuarios = ' . $e;
         }
     }
 }

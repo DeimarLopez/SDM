@@ -37,7 +37,7 @@ if(isset($_POST['ingresar'])){
         </script>';
     }
 }
-
+/* cliente */
 if(isset($_POST['registrar'])){
     $Cedula = $_POST['Cedula'];
     $Nombre = $_POST['Nombre'];
@@ -56,6 +56,7 @@ if(isset($_POST['registrar'])){
     $log->registrar($Cedula, $Nombre , $Apellido, $Correo, $Celular, $genero, $fecha, $Dirección, $Ciudad, $Usuario, $Password);
 
 }
+
 
 if(isset($_POST['Cerrar'])){
     session_start();

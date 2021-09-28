@@ -16,7 +16,7 @@
         <section class="content">
             <div id="paso-3" class="seccion">
                 <form action="" method="POST" id="insertarUsuGeneri">
-                    <h3>Actualizar Usuario</h3>
+                    <h3>Actualizar Cliente</h3>
                     <div class="campos__form ">
                         <input type="hidden" placeholder="Cedula" name="cedula" id="Cedula" value="<?php echo $datos[0][0] ?>" required>
                         <input type="text" value="<?php echo $datos[0][0] ?>" required>
