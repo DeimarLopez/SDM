@@ -1,0 +1,35 @@
+<?php include 'view/includes/templates/header.php' ?>
+    <main class="main mainCrud">
+        <section class="barraCrud">
+        <nav class="tabs">
+                <a href="?v=productobuscar">
+                    <img src="view/build/img/search.webp" alt="">
+                </a>
+                <a href="?v=producto">
+                    <img  data-paso="2" src="view/build/img/table.webp" alt="">
+                </a>
+                <a href="?v=productocrear" class="actual">
+                    <img data-paso="3" src="view/build/img/pencil.webp" alt="">
+                </a>
+            </nav>
+        </section>
+        <section class="content">
+            <div id="paso-1" class="seccion">
+                <form method="POST" id="formulario" class="buscar">
+                    <input type="text" name="dato" id="dato" required>
+                    <button type="submit" name="buscar">
+                        <i class="icon-search"></i>
+                    </button>
+                </form>
+            </div>
+            <?php
+                if(isset($_POST['buscar'])){
+            ?>
+                <p><?php echo $errores ?></p>
+            <?php
+                }
+            ?>
+        </section>
+    </main>
+    <script src="view/build/js/bundle.min.js"></script>
+    <?php include 'view/includes/templates/footer.php' ?>

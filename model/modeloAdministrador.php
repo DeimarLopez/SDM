@@ -142,6 +142,42 @@ class ModeloAdministrador
         return $datos;
     }
 
+    public function BusPro($value)
+    {
+        $datos = [];
+        try {
+            $value = '%'.$value.'%';
+            $sql = 'SELECT * FROM sdm.tb_productos WHERE nomProd like  ? or desProd like ?;';
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->bindParam(1, $value);
+            $cnn->bindParam(2, $value);
+            $cnn->execute();
+            while ($fila = $cnn->fetch()) {
+                $datos[] = $fila;
+            }
+        } catch (Exception $e) {
+            echo 'Error en la consulta producto = ' . $e;
+        }
+        return $datos;
+    }
+
+    public function BusProId($value)
+    {
+        $datos = [];
+        try {
+            $sql = 'SELECT * FROM sdm.tb_productos WHERE idProd = ?;';
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->bindParam(1, $value);
+            $cnn->execute();
+            while ($fila = $cnn->fetch()) {
+                $datos[] = $fila;
+            }
+        } catch (Exception $e) {
+            echo 'Error en la consulta producto = ' . $e;
+        }
+        return $datos;
+    }
+
     public function incertarProducto($nombre,$description,$tamaño,$imagen)
     {
         $res = 0;
@@ -197,6 +233,13 @@ class ModeloAdministrador
             $cnn->bindParam(3, $clave);
             $cnn->bindParam(4, $rol);
             $cnn->bindParam(5, $estado);
+    public function actualizarProducto($nombre,$description,$tamaño,$imagen,$id)
+    {
+        $res = 0;
+        try{
+            $sql = "UPDATE tb_productos SET tamaPro = ?, imgProd = ?, nomProd = ?, desProd = ? WHERE (idProd = ?);";
+            $cnn = Conexion::conexionbd()->prepare($sql);
+            $cnn->bindParam(1, $tamaño);
 
             $array = explode(".",$imagen['imagen']['name']);
             $termination = ".".$array[1];
@@ -206,6 +249,25 @@ class ModeloAdministrador
 
             $cnn->bindParam(6, $ruta);
             
+
+            $producto = new ModeloAdministrador();
+
+            $values=$producto->BusProId($id);
+
+            if($imagen['imagen']['name'] == null){
+                $ruta = $values[0][2];
+            }else{
+                $ruta = $values[0][2];
+                unlink($ruta);
+                $ruta = 'view/img/' . $nombre . rand() . $termination;
+            }
+
+            move_uploaded_file($imagen['imagen']['tmp_name'] , $ruta);
+
+            $cnn->bindParam(2, $ruta);
+            $cnn->bindParam(3, $nombre);
+            $cnn->bindParam(4, $description);
+            $cnn->bindParam(5, $id);
             if ($cnn->execute()) {
                 $res = 1;
             } else {
@@ -221,6 +283,10 @@ class ModeloAdministrador
     {
         try {
             $sql = 'DELETE FROM tb_usuarios WHERE doc=?';
+    public function EliPro($value)
+    {
+        try {
+            $sql = 'DELETE FROM tb_productos  WHERE idProd=?';
             $cnn = Conexion::conexionbd()->prepare($sql);
             $cnn->bindParam(1, $value);
             $cnn->execute();
@@ -249,5 +315,8 @@ class ModeloAdministrador
             echo 'Error en registrar usuarios = ' . $e;
         }
         return $res;
+    }
+            echo 'Error en la consulta producto = ' . $e;
+        }
     }
 }

@@ -5,7 +5,7 @@
     <main class="main mainCrud">
         <section class="barraCrud">
             <nav class="tabs">
-                 <a href="?v=productobuscar">
+                <a href="?v=productobuscar">
                     <img src="view/build/img/search.webp" alt="">
                 </a>
                 <a href="?v=producto">

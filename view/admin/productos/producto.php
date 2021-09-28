@@ -20,13 +20,17 @@
                         <img src="<?php echo $dato[2] ?>" alt="">
                         <h1><?php echo $dato[3] ?></h1>
                         <p><?php echo $dato[4] ?></p>
-                        <form action="" class="btn1">
-                            <input type="hidden" value="<?php echo $dato[0] ?>">
-                            <input type="submit" value="Actualizar">
+                        <form action="?v=productoactualizar" method="POST" class="btn1">
+                            <input type="hidden" value="<?php echo $dato[0] ?>" name="id">
+                            <button type="submit" name="actualizar">
+                                <i class="icon-pencil"></i>
+                            </button>
                         </form>
-                        <form action="" class="btn2">
-                            <input type="hidden" value="<?php echo $dato[0] ?>">
-                            <input type="submit" value="Eliminar">
+                        <form method="POST" action="?v=producto" class="btn2">
+                            <input type="hidden" value="<?php echo $dato[0] ?>" name="id">
+                            <button type="submit" name="eliminar">
+                                <i class="icon-delete"></i>
+                            </button>
                         </form>
                     </article>
                     <?php } ?>

@@ -12,6 +12,7 @@ if(isset($_POST['ingresar'])){
     if(count($usu)>=1){
         foreach($usu as $f){
             session_start();
+            $_SESSION['login'] = true;
             $_SESSION['doc'] = $f[0];
             $_SESSION['nomusu'] = $f[1];
             $_SESSION['clave'] = $f[2];
@@ -31,6 +32,8 @@ if(isset($_POST['ingresar'])){
             header('Location:'.$f[3].'.php'); 
         }
     }else{
+        session_start();
+        $_SESSION['login'] = false;
         echo '<script>
         alert("datos incorrectos");
         self.location="index.php";
@@ -60,6 +63,7 @@ if(isset($_POST['registrar'])){
 
 if(isset($_POST['Cerrar'])){
     session_start();
+    $_SESSION['login'] = false;
     if($_SESSION){
         session_destroy();
         echo '<script>

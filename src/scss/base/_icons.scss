@@ -1,0 +1,37 @@
+button{
+    background-color: transparent;
+    border: none;
+    i{
+        text-align: center;
+        font-size: 2.5rem;
+        background-color: $blanco;
+        border-radius: .6rem;
+        transition: all 200ms;
+        &:hover{
+            cursor: pointer;
+        }
+        
+    }
+    .icon-delete{
+        color: $magenta;
+        &:hover{
+            background-color: $magenta;
+            color: $blanco;
+        }
+    }
+    .icon-pencil{
+        color: $cyan;
+        &:hover{
+            background-color: $cyan;
+            color: $blanco;
+        }
+    }
+    .icon-search{
+        color: $blanco;
+        background-color: $magenta;
+        &:hover{
+            background-color: $cyan;
+            color: $blanco;
+        }
+    }
+  }

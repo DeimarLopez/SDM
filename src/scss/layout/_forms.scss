@@ -27,6 +27,15 @@
 
 
         }
+        .col__form{
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            img{
+                border-radius: 3rem;
+                width: 84%;
+            }
+        }
 
         .btn{
             width: 100%;
@@ -69,6 +78,22 @@
                 background-color: $cyan;
                 color: $blanco;
             }
+        }
+    }
+
+    .buscar{
+        display: flex;
+        align-items: center;
+        input{
+            background-color: #ffffffa9;
+            border: none;
+            font-size: 1.7rem;
+            padding: .7rem;
+            outline: none;
+            border-radius: 2.5rem;
+            border: 2px solid $cyan;
+            width: 90%;
+            text-align: center;
         }
     }
 }

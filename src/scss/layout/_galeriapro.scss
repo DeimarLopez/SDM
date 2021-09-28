@@ -18,24 +18,36 @@
             object-fit: cover;
         }
         h1{
-            font-size: 3rem;
+            font-size: 2rem;
             margin-bottom: 0;
             padding-bottom: .5rem;
             border-bottom: .2rem solid $blanco;
+            color: $blanco;
+            text-transform: uppercase;
         }
         form{
             margin-left: 0;
-        display: inline;
+            display: inline;
         }
         p{
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             margin: 1rem .4rem;
             height: 8rem;
             overflow: auto;
             background-color: $blanco;
             padding: .5rem;
-            color: $cyan;
+            color: $negro;
             
+        }
+        button{
+            margin-bottom: 1rem;
+            i{
+                color: $magenta;
+                background-color: $blanco;
+                &:hover{
+                    color: $cyan;
+                }
+            }
         }
     }
 }

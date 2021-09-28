@@ -14,10 +14,10 @@
             </nav>
         </section>
         <section class="content">
-            <div id="paso-2" class="seccion">
+            <section class="tables">
                 <div class="tabla">
                     <table>
-                        <thead>
+                        <thead class="thead">
                             <tr>
                                 <th>Documento</th>
                                 <th>Nombre</th>
@@ -35,7 +35,6 @@
                         </thead>
                         <tbody class="tbody">
                             <?php
-                            if(isset($_POST['buscar'])){
                                 foreach($datos as $dato){
                                     ?>
                                         <tr>
@@ -49,35 +48,23 @@
                                             <td><?php echo $dato[7]?></td>
                                             <td><?php echo $dato[8]?></td>
                                             <td><?php echo $dato[9]?></td>
-                                            <td><form action=""><input type="hidden" value="<?php echo $dato[0]?>"><input type="submit" value="Actualizar"></form></td>
-                                            <td><form action=""><input type="hidden" value="<?php echo $dato[0]?>"><input type="submit" value="Eliminar"></form></td>
+                                            <td><form method="POST" action="?v=clienteactualizar"><input type="hidden" value="<?php echo $dato[0]?>" name="id">
+                                            <button type="submit" name="actualizar">
+                                                <i class="icon-pencil"></i>
+                                            </button>
+                                            </form></td>
+                                            <td><form method="POST" action="?v=cliente"><input type="hidden" value="<?php echo $dato[0]?>" name="id">
+                                            <button type="submit" name="eliminar">
+                                                <i class="icon-delete"></i>
+                                            </button>
+                                        </form></td>
                                         </tr>
                                     <?php
-                                }
-                            }else{
-                                foreach($datos as $dato){?>
-                                        <tr>
-                                            <td><?php echo $dato[0]?></td>
-                                            <td><?php echo $dato[1]?></td>
-                                            <td><?php echo $dato[2]?></td>
-                                            <td><?php echo $dato[3]?></td>
-                                            <td><?php echo $dato[4]?></td>
-                                            <td><?php echo $dato[5]?></td>
-                                            <td><?php echo $dato[6]?></td>
-                                            <td><?php echo $dato[7]?></td>
-                                            <td><?php echo $dato[8]?></td>
-                                            <td><?php echo $dato[9]?></td>
-                                            <td><form method="POST" action="?v=clienteactualizar"><input type="hidden" value="<?php echo $dato[0]?>" name="id"><input type="submit" name="actualizar" value="actualizar"></form></td>
-                                            <td><form method="POST" action=""><input type="hidden" value="<?php echo $dato[0]?>" name="id"><input type="submit" name="eliminar" value="eliminar"></form></td>
-                                        </tr>
-                                <?php 
-                                }
-                            }   
-                            ?>
+                                }?>                 
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </section>
         </section>
     </main>
     <script src="view/build/js/bundle.min.js"></script>

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>7xEver</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="view/build/img/logo.ico">
+    <link rel="stylesheet" href="view/build/css/fontello.css">
     <link rel="stylesheet" href="view/build/css/app.css">
 </head>
 
