@@ -14,10 +14,10 @@
             </nav>
         </section>
         <section class="content">
-            <div id="paso-2" class="seccion">
+            <section class="tables">
                 <div class="tabla">
                     <table>
-                        <thead>
+                        <thead class="thead">
                             <tr>
                                 <th>Documento</th>
                                 <th>Nombre</th>
@@ -48,15 +48,23 @@
                                             <td><?php echo $dato[7]?></td>
                                             <td><?php echo $dato[8]?></td>
                                             <td><?php echo $dato[9]?></td>
-                                            <td><form method="POST" action="?v=clienteactualizar"><input type="hidden" value="<?php echo $dato[0]?>" name="id"><input type="submit" name="actualizar" value="actualizar"></form></td>
-                                            <td><form method="POST" action="?v=cliente"><input type="hidden" value="<?php echo $dato[0]?>" name="id"><input type="submit" name="eliminar" value="eliminar"></form></td>
+                                            <td><form method="POST" action="?v=clienteactualizar"><input type="hidden" value="<?php echo $dato[0]?>" name="id">
+                                            <button type="submit" name="actualizar">
+                                                <i class="icon-pencil"></i>
+                                            </button>
+                                            </form></td>
+                                            <td><form method="POST" action="?v=cliente"><input type="hidden" value="<?php echo $dato[0]?>" name="id">
+                                            <button type="submit" name="eliminar">
+                                                <i class="icon-delete"></i>
+                                            </button>
+                                        </form></td>
                                         </tr>
                                     <?php
-                                    }?>                 
+                                }?>                 
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </section>
         </section>
     </main>
     <script src="view/build/js/bundle.min.js"></script>

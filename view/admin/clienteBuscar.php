@@ -15,9 +15,11 @@
         </section>
         <section class="content">
             <div id="paso-1" class="seccion">
-                <form method="POST" id="formulario">
-                    <input type="text" name="dato" id="dato" required>
-                    <input type="submit" name="buscar" value="buscar" id="buscar">
+                <form method="POST" id="formulario" class="buscar">
+                    <input class="box" type="text" name="dato" id="dato" required>
+                    <button type="submit" name="buscar">
+                        <i class="icon-search"></i>
+                    </button>
                 </form>
             </div>
             <?php

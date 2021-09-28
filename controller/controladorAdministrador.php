@@ -4,6 +4,7 @@ require_once('model/modeloAdministrador.php');
 $modeloAdministrador = new ModeloAdministrador();
 
 session_start();
+if($_SESSION['login']){
 $doc  = $_SESSION['doc'];
 $nomusu  = $_SESSION['nomusu'];
 $clave  = $_SESSION['clave'];
@@ -120,6 +121,7 @@ switch ($_GET['v'] ?? '') {
         }
         require_once('view/admin/clienteActualizar.php');
         break;
+
     case 'producto':
 
         if (isset($_POST['eliminar'])) {
@@ -144,7 +146,7 @@ switch ($_GET['v'] ?? '') {
                 exit;
             } else {
                 echo '<script>alert("cliente no existente");</script>';
-                header('Location:Administrador.php?v=clientebuscar');
+                header('Location:Administrador.php?v=productobuscar');
             }
         }
         require_once('view/admin/productos/productoBuscar.php');
@@ -166,8 +168,34 @@ switch ($_GET['v'] ?? '') {
         require_once('view/admin/productos/productoCrear.php');
 
     break;
+
+    case 'productoactualizar':
+
+        if(isset($_POST['actualizarPro'])){
+            $id = $_POST['idProd'];
+            $nombre = $_POST['nombre'];
+            $description = $_POST['description'];
+            $tamaño = $_POST['tamaño'];
+            $imagen = $_FILES;
+            $datos = $modeloAdministrador->actualizarProducto($nombre, $description, $tamaño, $imagen,$id);
+            if ($datos > 0) {
+                header('Location:Administrador.php?v=producto');
+            } else {
+                header('Location:Administrador.php?v=productoactualizar');
+            }
+        }
+
+        if (isset($_POST['actualizar'])) {
+            $id = $_POST['id'];
+            $datos = $modeloAdministrador->BusProId($id);
+        }
+        require_once('view/admin/productos/productoActualizar.php');
+
+    break;
     default:
         require_once('view/admin/index.php');
         break;
 }
-
+}else{
+    header('Location:index.php');
+}
