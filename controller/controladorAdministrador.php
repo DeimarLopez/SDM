@@ -231,7 +231,7 @@ switch ($_GET['v'] ?? '') {
         }
         require_once('view/admin/usuarioCrear.php');
         
-        break;
+    break;
     case 'productoactualizar':
 
         if(isset($_POST['actualizarPro'])){
@@ -251,14 +251,10 @@ switch ($_GET['v'] ?? '') {
         if (isset($_POST['actualizar'])) {
             $id = $_POST['id'];
             $datos = $modeloAdministrador->BusProId($id);
-        }
+        } }
         require_once('view/admin/productos/productoActualizar.php');
 
     break;
-    default:
-        require_once('view/admin/index.php');
-        break;
-
     case 'usuarioactualizar':
         if (isset($_POST['actualizarUsu'])) {
             $doc = $_POST['doc'];
@@ -283,10 +279,10 @@ switch ($_GET['v'] ?? '') {
             $datos = $modeloAdministrador->BusUsu($id);
         }
         require_once('view/admin/usuarioActualizar.php');
-        break;
+    break;
 
     default:
-    require_once('view/admin/index.php');
+        require_once('view/admin/index.php');
     break;
 }
 }else{
